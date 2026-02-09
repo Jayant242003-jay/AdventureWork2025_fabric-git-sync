@@ -1,0 +1,89 @@
+table dimension_employee
+	lineageTag: f016e463-7b3b-4cb1-8fc1-f4861d3134ac
+	sourceLineageTag: [dbo].[dimension_employee]
+
+	column EmployeeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 98a87e4d-6386-4f59-9039-9b54c629f639
+		sourceLineageTag: EmployeeKey
+		summarizeBy: count
+		sourceColumn: EmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column WWIEmployeeID
+		dataType: int64
+		formatString: 0
+		lineageTag: fbdfa8f0-5f25-467e-8e86-d09f399f277f
+		sourceLineageTag: WWIEmployeeID
+		summarizeBy: count
+		sourceColumn: WWIEmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee
+		dataType: string
+		lineageTag: d8a37d7a-19ba-4a0b-9e22-7e9c29f7fd06
+		sourceLineageTag: Employee
+		summarizeBy: none
+		sourceColumn: Employee
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreferredName
+		dataType: string
+		lineageTag: 0373ec4a-0ae5-4870-8d6a-b61d1244afa3
+		sourceLineageTag: PreferredName
+		summarizeBy: none
+		sourceColumn: PreferredName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSalesperson
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1412e653-40aa-41fa-9c86-837042d83673
+		sourceLineageTag: IsSalesperson
+		summarizeBy: none
+		sourceColumn: IsSalesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidFrom
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dded3a33-b10f-4b1f-a347-07197edbda5d
+		sourceLineageTag: ValidFrom
+		summarizeBy: none
+		sourceColumn: ValidFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidTo
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8b6ede83-5b41-4712-8890-57cb0b02a54e
+		sourceLineageTag: ValidTo
+		summarizeBy: none
+		sourceColumn: ValidTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineageKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 39b690a8-46fe-43c6-880f-09e168d8f761
+		sourceLineageTag: LineageKey
+		summarizeBy: count
+		sourceColumn: LineageKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimension_employee = entity
+		mode: directLake
+		source
+			entityName: dimension_employee
+			schemaName: dbo
+			expressionSource: 'DirectLake - Maste'
+
